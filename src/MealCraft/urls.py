@@ -17,15 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from MealCraft.views import index
-from MealCraft.views import dev
+from MealCraft.views import index,dev,loginpage
 
 urlpatterns = [
     path('', index, name="Accueil"),
     path('dev/', dev, name="Dev"),
+    path('login/', loginpage, name="Login"),
+
 
 
     path('admin/', admin.site.urls),
 ]
 
+
 handler404 = "MealCraft.views.page_not_found_view"
+
