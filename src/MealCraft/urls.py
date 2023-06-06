@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 from MealCraft.views import index
+from MealCraft.views import dev
 
 urlpatterns = [
     path('', index, name="Accueil"),
+    path('dev/', dev, name="Dev"),
+
 
     path('admin/', admin.site.urls),
 ]
