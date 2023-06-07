@@ -1,2 +1,2 @@
-/.env
-/src/MealCraft/__pycache
+.env/
+src/MealCraft/__pycache__/
