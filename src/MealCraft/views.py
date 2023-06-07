@@ -1,5 +1,4 @@
 from django.shortcuts import render
-import requests
 import openfoodfacts
 
 def index(request):
