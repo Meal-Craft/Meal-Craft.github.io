@@ -1,2 +1,3 @@
 .env/
 src/MealCraft/__pycache__/
+src/db.sqlite3
