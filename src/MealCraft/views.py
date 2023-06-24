@@ -3,8 +3,25 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import *
 from django.views.generic import TemplateView
 import openfoodfacts
-from time import sleep
+from django.contrib import messages
  
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class NewUserForm(UserCreationForm):
+	email = forms.EmailField(required=False)
+
+	class Meta:
+		model = User
+		fields = ("username", "email", "password1", "password2")
+
+	def save(self, commit=True):
+		user = super(NewUserForm, self).save(commit=False)
+		user.email = self.cleaned_data['email']
+		if commit:
+			user.save()
+		return user
 
 def index(request):
     if request.method == 'POST':
@@ -33,8 +50,6 @@ def loginpage(request, **kwargs):
     if request.user.is_authenticated:
         return redirect(f"/")
     
-    print(request)
-    print(request.method)
     if request.method == 'POST':
         username = request.POST.get('username', False)
         password = request.POST.get('password', False)
@@ -48,3 +63,14 @@ def loginpage(request, **kwargs):
     
     return render(request, "login.html", context={"page": "Login", "result": result})
     
+def register_request(request):
+	if request.method == "POST":
+		form = NewUserForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			messages.success(request, "Registration successful." )
+			return redirect(f"/")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
+	form = NewUserForm()
+	return render (request, "register.html", context={"register_form":form})
