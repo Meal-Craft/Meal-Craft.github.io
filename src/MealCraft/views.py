@@ -10,7 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 class NewUserForm(UserCreationForm):
-	email = forms.EmailField(required=False)
+	email = forms.EmailField(required=True, label="Adresse email")
 
 	class Meta:
 		model = User
@@ -36,9 +36,7 @@ def dev(request):
     barcode = "3017620422003"  # Remplacez par votre propre code-barres
     product = openfoodfacts.get_product(barcode)
 
-    additives = openfoodfacts.facets.get_allergens()
-
-    return render(request, 'dev.html', context={"page": "Dev", "product": product, "additives": additives})
+    return render(request, 'dev.html', context={"page": "Dev", "product": product})
 
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
