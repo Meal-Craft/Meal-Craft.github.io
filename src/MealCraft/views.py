@@ -72,3 +72,10 @@ def register_request(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request, "register.html", context={"register_form":form})
+
+def liste_request(request):
+    if request.method == 'POST':
+        logout(request)
+    return render(request, "liste.html", context={"page": "Liste"})
+
+   

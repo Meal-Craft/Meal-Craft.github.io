@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/liste.css' %}">
 
     
 
@@ -17,15 +18,15 @@
 <body>
     <header>
         <div class="name">
-            <img class="logo" src="../static/img/logo.PNG" />
-            <img class="nom" src="../static/img/nom.PNG" />
+            <img class="logo" src="../static/img/logo.png" />
+            <img class="nom" src="../static/img/nom.png" />
         </div>
-        <img id="slogan" src="../static/img/slogan.PNG" />
+        <img id="slogan" src="../static/img/slogan.png" />
         <nav>
             <ul>
-                <li><a href="">Accueil</a></li>
+                <li><a href="/index">Accueil</a></li>
                 <li><a href="">Mon Frigo</a></li>
-                <li><a href="">Liste de Course</a></li>
+                <li><a href="/liste">Liste de Course</a></li>
             </ul>
             <form>
                 <!-- Formulaire de recherche -->

@@ -17,13 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from MealCraft.views import index,dev,loginpage,register_request
+from MealCraft.views import index,dev,loginpage,register_request, liste_request
 
 urlpatterns = [
-    path('', index, name="Accueil"),
+    path('index/', index, name="Accueil"),
     path('dev/', dev, name="Dev"),
     path('login/', loginpage, name="Login"),
     path("register/", register_request, name="register"),
+    path("liste/", liste_request, name="liste"),
 
 
 
