@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import *
 from django.views.generic import TemplateView
-import openfoodfacts
 from django.contrib import messages
  
 from django import forms
@@ -27,8 +26,6 @@ def get_unique_foods(search_query):
     else:
         return []
 
-
-
 class NewUserForm(UserCreationForm):
 	email = forms.EmailField(required=True, label="Adresse email")
 
@@ -52,15 +49,10 @@ def index(request):
 def dev(request):
     if not request.user.is_authenticated:
         return redirect(f"/login/")
-    
-    barcode = "3017620422003"  # Remplacez par votre propre code-barres
-    product = openfoodfacts.get_product(barcode)
- 
-    #r = requests.get("https://world.openfoodfacts.org/api/v0/product/" + str(barcode) +  ".json")
-    
+      
     unique_foods = get_unique_foods("eau")
     print(unique_foods)
-
+    
     return render(request, 'dev.html', context={"page": "Dev", "product": product})
 
 def page_not_found_view(request, exception):
@@ -69,6 +61,7 @@ def page_not_found_view(request, exception):
 
 def loginpage(request, **kwargs):
     result = ""
+
     if request.user.is_authenticated:
         return redirect(f"/")
     
@@ -101,4 +94,3 @@ def liste_request(request):
     if request.method == 'POST':
         logout(request)
     return render(request, "liste.html", context={"page": "Liste"})
-
