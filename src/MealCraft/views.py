@@ -101,3 +101,4 @@ def liste_request(request):
     if request.method == 'POST':
         logout(request)
     return render(request, "liste.html", context={"page": "Liste"})
+
