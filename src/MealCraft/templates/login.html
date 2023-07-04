@@ -4,11 +4,11 @@
     <div class="loginform">
         <p>{{result}}</p>
 
-        <form method="post"  role="form">
+        <form id="signin" method="post"  role="form">
             {% csrf_token %}
             <input type="text" name="username" placeholder="Utilisateur">
             <input type="password" name="password" placeholder="Mot de passe">
-            <input type="submit" value="login" />
+            <button type="submit">login</button> 
         </form>
     </div>
 

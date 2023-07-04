@@ -11,15 +11,33 @@
 
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
 
-     {% if page == 'Login' %}
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
-
-     {% endif %}
+    
 
 </head>
 <body>
+    <header>
+        <div class="name">
+            <img class="logo" src="../static/img/logo.PNG" />
+            <img class="nom" src="../static/img/nom.PNG" />
+        </div>
+        <img id="slogan" src="../static/img/slogan.PNG" />
+        <nav>
+            <ul>
+                <li><a href="">Accueil</a></li>
+                <li><a href="">Mon Frigo</a></li>
+                <li><a href="">Liste de Course</a></li>
+            </ul>
+            <form>
+                <!-- Formulaire de recherche -->
+                <input type="text" placeholder="Rechercher un aliment ou une recette">
+                <button type="submit">Rechercher</button>
+            </form>
+        </nav>
+    </header>
+
     <h1>Bienvenue sur Meal Craft !</h1>
-    {% block content %}{% endblock content %}
+    {% block content %}
+    {% endblock content %}
 
    <!-- Footer -->
    <div class="footercontent">
