@@ -20,7 +20,7 @@ from django.urls import path
 from MealCraft.views import index,dev,loginpage,register_request, liste_request
 
 urlpatterns = [
-    path('index/', index, name="Accueil"),
+    path('', index, name="Accueil"),
     path('dev/', dev, name="Dev"),
     path('login/', loginpage, name="Login"),
     path("register/", register_request, name="register"),
