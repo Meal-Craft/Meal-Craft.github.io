@@ -86,7 +86,6 @@ def loginpage(request, **kwargs):
     return render(request, "login.html", context={"page": "Login", "result": result})
     
 def register_request(request):
-<<<<<<< HEAD
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
 		if form.is_valid():
@@ -104,18 +103,3 @@ def liste_request(request):
     return render(request, "liste.html", context={"page": "Liste"})
 
    
-=======
-    result = ""
-    if request.method == "POST":
-        form = NewUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            messages.success(request, "Registration successful." )
-            result = "Registration successful."
-            return redirect(f"/")
-        messages.error(request, "Unsuccessful registration. Invalid information.")
-        result = "Unsuccessful registration. Invalid information."
-    form = NewUserForm()
-    return render (request, "register.html", context={"register_form":form, "result":result})
->>>>>>> cd4eef3b97a96f435c9dc50a0ff8aca7366f08b1
