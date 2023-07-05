@@ -1,4 +1,5 @@
 /* Styles communs */
+
 body {
     font-family: 'Raleway', sans-serif;
     color: #333333;
@@ -8,38 +9,39 @@ body {
     overflow: auto;
 }
 
+
 /* Styles pour le header */
+
 img.logo {
     width: 5%;
-
 }
 
 img.nom {
     width: 25%;
-
 }
 
 #slogan {
     width: 28%;
     margin: 20px;
-
 }
 
 header {
-
     padding: 20px;
     color: #333333;
     text-align: center;
 }
 
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: -1px;
     border-bottom: 1px solid #6C4253;
+    background-color: #F1E8D7;
+    z-index: 1000;
 }
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -66,13 +68,15 @@ nav ul li a:hover {
     color: #ffffff
 }
 
+
 /* Styles pour le formulaire de recherche */
+
 form {
-    
     margin: 10px;
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"],
+input[type="password"] {
     width: 300px;
     padding: 10px;
     border: none;
@@ -93,16 +97,19 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #6C4253;
 }
+
+
 /* Footer */
+
 .footercontent {
-   
     width: 100%;
 }
 
-svg{
+svg {
     margin: 0;
     padding: 0;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -190,4 +197,30 @@ ul {
 .footer-col .social-links a:hover {
     color: #24262b;
     background-color: #ffffff;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.affichageResultat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
