@@ -1,11 +1,12 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block content %}
+<script src="{% static 'js/liste.js' %}"></script>
 
-
-{{product.code}} -
-{{product.product.product_name}} - NutriScore : 
-{{product.product.nutriscore_data.grade}}
-
+<h1>Recherche d'aliments uniques</h1>
+<input type="text" id="searchInput" placeholder="Entrez votre recherche">
+<button onclick="search()">Rechercher</button>
+<div id="resultContainer"></div>
 
 {% endblock %}

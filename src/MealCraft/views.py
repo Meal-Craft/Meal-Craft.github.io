@@ -53,7 +53,7 @@ def dev(request):
     unique_foods = get_unique_foods("eau")
     print(unique_foods)
     
-    return render(request, 'dev.html', context={"page": "Dev", "product": product})
+    return render(request, 'dev.html', context={"page": "Dev"})
 
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
