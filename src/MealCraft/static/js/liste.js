@@ -1,50 +1,64 @@
 function getUniqueFoods(searchQuery) {
-  var apiURL =
-    "https://world.openfoodfacts.org/cgi/search.pl?search_terms=" +
-    encodeURIComponent(searchQuery) +
-    "&search_simple=1&action=process&json=1";
+    var apiURL =
+        "https://world.openfoodfacts.org/cgi/search.pl?search_terms=" +
+        encodeURIComponent(searchQuery) +
+        "&search_simple=1&action=process&json=1";
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", apiURL, false);
-  xhr.send();
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", apiURL, false);
+    xhr.send();
 
-  if (xhr.status === 200) {
-    var data = JSON.parse(xhr.responseText);
+    if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
 
-    if ("products" in data) {
-      var products = data["products"];
-      var uniqueFoods = [];
+        if ("products" in data) {
+            var products = data["products"];
+            var uniqueFoods = [];
 
-      for (var i = 0; i < products.length; i++) {
-        var product = products[i];
-        if ("product_name" in product) {
-          uniqueFoods.push(product["product_name"]);
+            for (var i = 0; i < products.length; i++) {
+                var product = products[i];
+                if ("product_name" in product && "image_url" in product) {
+                    var food = {
+                        name: product["product_name"],
+                        image: product["image_url"],
+                    };
+                    uniqueFoods.push(food);
+                }
+            }
+
+            return uniqueFoods;
         }
-      }
-
-      return Array.from(new Set(uniqueFoods));
     }
-  }
 
-  return [];
+    return [];
 }
 
 function search() {
-  var searchQuery = document.getElementById("searchInput").value;
-  var uniqueFoods = getUniqueFoods(searchQuery);
+    var searchQuery = document.getElementById("searchInput").value;
+    var uniqueFoods = getUniqueFoods(searchQuery);
 
-  var resultContainer = document.getElementById("resultContainer");
-  resultContainer.innerHTML = "";
+    var resultContainer = document.getElementById("resultContainer");
+    resultContainer.innerHTML = "";
 
-  if (uniqueFoods.length > 0) {
-    var resultList = document.createElement("ul");
-    uniqueFoods.forEach(function (food) {
-      var listItem = document.createElement("li");
-      listItem.textContent = food;
-      resultList.appendChild(listItem);
-    });
-    resultContainer.appendChild(resultList);
-  } else {
-    resultContainer.textContent = "Aucun résultat trouvé.";
-  }
+    if (uniqueFoods.length > 0) {
+        var resultList = document.createElement("ul");
+        resultList.className = 'affichageResultat';
+        uniqueFoods.forEach(function(food) {
+            var listItem = document.createElement("li");
+            listItem.className = 'card';
+
+            var foodName = document.createElement("span");
+            foodName.textContent = food.name;
+            listItem.appendChild(foodName);
+
+            var foodImage = document.createElement("img");
+            foodImage.src = food.image;
+            listItem.appendChild(foodImage);
+
+            resultList.appendChild(listItem);
+        });
+        resultContainer.appendChild(resultList);
+    } else {
+        resultContainer.textContent = "Aucun résultat trouvé.";
+    }
 }

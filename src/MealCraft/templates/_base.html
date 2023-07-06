@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,10 @@
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
     <link rel="stylesheet" href="{% static 'css/liste.css' %}">
 
-    
+
 
 </head>
+
 <body>
     <header>
         <div class="name">
@@ -23,25 +25,31 @@
         </div>
         <img id="slogan" src="../static/img/slogan.png" />
     </header>
-        <nav>
-            <ul>
-                <li><a href="/#">Accueil</a></li>
-                <li><a href="">Mon Frigo</a></li>
-                <li><a href="/liste">Liste de Course</a></li>
-            </ul>
-            <form>
-                <!-- Formulaire de recherche -->
-                <input type="text" placeholder="Rechercher un aliment ou une recette">
-                <button type="submit">Rechercher</button>
-            </form>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="/#">Accueil</a></li>
+            <li><a href="">Mon Frigo</a></li>
+            <li><a href="/liste">Liste de Course</a></li>
+        </ul>
+        <script src="{% static 'js/liste.js' %}"></script>
+
+        <form>
+            <!-- Formulaire de recherche -->
+            <input type="text" id="searchInput" placeholder="Rechercher un aliment ou une recette">
+            <button onclick="search()" type="submit">Rechercher</button>
+        </form>
+
+    </nav>
 
     <h1>Bienvenue sur Meal Craft !</h1>
-    {% block content %}
-    {% endblock content %}
+    {% block content %} {% endblock content %}
 
-   <!-- Footer -->
-   <div class="footercontent">
+
+    <div id="resultContainer"></div>
+
+
+    <!-- Footer -->
+    <div class="footercontent">
 
         <footer class="footer">
             <div class="container">
@@ -83,4 +91,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
