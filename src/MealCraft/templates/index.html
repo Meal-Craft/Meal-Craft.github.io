@@ -2,48 +2,11 @@
 
 {% load static %}
 
-{% block content %}
-
-<link rel="stylesheet" href="{% static 'css/other.css' %}">
-
-<div id="banniere-photos">
-
-    <div class="box">
-        <img class="ban" src="../static/img/curry.jpg" />
-    </div>
-
-    <div class="box">
-        <img class="ban" src="../static/img/agrumes.jpg" />
-    </div>
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/other.css' %}">
+{% endblock head %}
     
-    <div class="box">
-        <img class="ban" src="../static/img/salade.jpg" />
-    </div>
-
-    <div class="box">
-        <img class="ban" src="../static/img/légumes.jpg" />
-    </div>
-
-    <div class="box">
-        <img class="ban" src="../static/img/pates.jpg" />
-    </div>
-
-    <div class="box">
-        <img class="ban" src="../static/img/plat.jpg" />
-    </div>
-
-    <div class="box">
-        <img class="ban" src="../static/img/pancake.jpg" />
-    </div>
-
-    <div class="box">
-        <img class="ban" src="../static/img/vert.jpg" />
-    </div>
-
-</div>
-
-
-
+{% block content %}
 
 <p>Ceci est la page d'accueil</p>  
 
