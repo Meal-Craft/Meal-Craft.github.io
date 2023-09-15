@@ -51,10 +51,7 @@ function search() {
             foodImage.src = food.image;
             listItem.appendChild(foodImage);
 
-            var foodName = document.createElement("span");
-            foodName.classList.add('text');
-            foodName.textContent = food.name;
-            listItem.appendChild(foodName);
+
 
 
 

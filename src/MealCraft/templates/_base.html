@@ -28,11 +28,11 @@
         <img id="slogan" src="../static/img/slogan.png" />
     </header>
     <nav>
-        <ul>
-            <li><a href="/#">Accueil</a></li>
+        <ul id="navbar">
+            <li><button class="bouton" href="/#">Accueil</button></li>
             {% if request.user.is_authenticated %} 
-                <li><a href="">Mon Frigo</a></li>
-                <li><a href="/liste">Liste de Course</a></li>
+                <li><button class="bouton" href="">Frigo</button></li>
+                <li><button class="bouton" href="/liste">Liste</button></li>
             {% else %}
                 <ul>
                     <li><a href="/login">SignIn</a></li>
@@ -46,7 +46,7 @@
         <form onsubmit="return false;">
             <!-- Formulaire de recherche -->
             <input type="text" id="searchInput" placeholder="Rechercher un aliment ou une recette">
-            <button onclick="search()" type="submit">Rechercher</button>
+            <button class="bouton" onclick="search()" type="submit">Rechercher</button>
         </form> 
     </nav>
     {% block content %} {% endblock content %}
