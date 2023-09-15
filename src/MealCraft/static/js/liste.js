@@ -51,7 +51,16 @@ function search() {
             foodImage.src = food.image;
             listItem.appendChild(foodImage);
 
-
+            /*
+            var foodName = document.createElement("span");
+            foodName.classList.add('text');
+            // couper le dernier mot du text si il est supérieur à 17 caractère
+            if (food.name.length > 15) {
+                food.name = food.name.substring(0, 15) + '...';
+            }
+            foodName.textContent = food.name;
+            listItem.appendChild(foodName);
+            */
 
 
 
