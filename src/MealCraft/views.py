@@ -93,6 +93,10 @@ def register_request(request):
 	return render (request, "register.html", context={"register_form":form})
 
 def liste_request(request):
-    print(Liste.objects.filter(user=request.user))
+    Liste.objects.create(user=request.user, nutrimcode="3274080005003")
+    Liste.objects.create(user=request.user, nutrimcode="3017620422003")
+    Liste.objects.create(user=request.user, nutrimcode="7622210449283")
+    Liste.objects.create(user=request.user, nutrimcode="5449000214911")
 
-    return render(request, "liste.html", context={"page": "Liste"})
+
+    return render(request, "liste.html", context={"page": "Liste", "liste": Liste.objects.filter(user=request.user)})

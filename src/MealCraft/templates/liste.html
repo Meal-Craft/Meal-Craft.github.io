@@ -14,27 +14,15 @@
     <div class="list-course">
         <h1 class="list-title">Liste de courses</h1>
         <div id="list-content">
-            <p class="list-item">Nutella</p>
-            <p class="list-item">Actimel</p>
-            <p class="list-item">Sucre en poudre</p>
-            <p class="list-item">Riz basmati</p>
-            <p class="list-item">Sauce Bolognaise</p>
-            <p class="list-item">Tortillas</p>
-            <p class="list-item">Semoule grain fin</p>
-            <p class="list-item">Haricots verts</p>
-            <p class="list-item">Haricots blancs</p>
-            <p class="list-item">Haricots rouges</p>
-            <p class="list-item">Eau petillante 1.5L</p>
-            <p class="list-item">Riz blanc</p>
-            <p class="list-item">Blanc de dinde</p>
-            <p class="list-item">Beurre de cacahuètes</p>
-            <p class="list-item">Pain de mie complet</p>
-           
+            {% for i in liste %}
+                <p class="list-item"> <script>getUniqueFoods({{ i }})</script> </p>
+            {% endfor %}
         </div>
     </div>
 </div>
     
-
-
+{% block script %}
+    <script src="{% static 'js/liste.js' %}"></script>
+{% endblock script %}
 
 {% endblock content %}
