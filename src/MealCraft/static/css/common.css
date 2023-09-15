@@ -208,14 +208,13 @@ ul {
     backdrop-filter: blur(10px);
     transition: background-color 0.3s ease;
     display: flex;
-    flex-direction: column;
     align-items: center;
     width: 200px;
+    justify-content: space-between;
 }
 
 img {
-    max-width: 100%;
-    max-height: 200px;
+    max-height: 180px;
 }
 
 .affichageResultat {
@@ -223,4 +222,37 @@ img {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
+}
+
+ul.affichageResultat {
+    justify-content: center;
+
+}
+
+.text {
+    display: flex;
+    margin-left: auto;
+    width: 100%;
+    justify-content: center;
+    min-height: 30px;
+    font-weight: bold;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+ul.affichageResultat .card {
+    width: calc(30% - 5);
+    /* Répartit les cartes en 3 colonnes avec un espace de 10px entre elles */
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+}
+
+ul.affichageResultat .card img {
+    max-width: 100%;
+    object-fit: fill;
+    overflow: hidden;
+    /* Permet aux images de remplir l'espace vertical disponible */
 }
