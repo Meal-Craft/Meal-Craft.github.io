@@ -60,8 +60,6 @@ function search() {
             foodName.textContent = food.name;
             listItem.appendChild(foodName);
 
-
-
             resultList.appendChild(listItem);
         });
         resultContainer.appendChild(resultList);
