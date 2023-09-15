@@ -43,17 +43,20 @@ function search() {
     if (uniqueFoods.length > 0) {
         var resultList = document.createElement("ul");
         resultList.className = 'affichageResultat';
-        uniqueFoods.forEach(function(food) {
+        uniqueFoods.forEach(function (food) {
             var listItem = document.createElement("li");
             listItem.className = 'card';
-
-            var foodName = document.createElement("span");
-            foodName.textContent = food.name;
-            listItem.appendChild(foodName);
 
             var foodImage = document.createElement("img");
             foodImage.src = food.image;
             listItem.appendChild(foodImage);
+
+            var foodName = document.createElement("span");
+            foodName.classList.add('text');
+            foodName.textContent = food.name;
+            listItem.appendChild(foodName);
+
+
 
             resultList.appendChild(listItem);
         });
