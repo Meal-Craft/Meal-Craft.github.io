@@ -13,7 +13,7 @@
     {% if request.user.is_authenticated %} 
         <form method="post"  role="form">
             {% csrf_token %}
-            <input type="submit" value="loggout" />
+            <input class="bouton " type="submit" value="Déconnection " />
         </form>
         
         <a href="/dev">DevelopersPage</a> <br> 
