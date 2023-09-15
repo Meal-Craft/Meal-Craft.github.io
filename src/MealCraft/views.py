@@ -7,6 +7,8 @@ from django.contrib import messages
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+ 
+from MealCraft.models import *
 
 import requests, json
 
@@ -91,6 +93,6 @@ def register_request(request):
 	return render (request, "register.html", context={"register_form":form})
 
 def liste_request(request):
-    if request.method == 'POST':
-        logout(request)
+    print(Liste.objects.filter(user=request.user))
+
     return render(request, "liste.html", context={"page": "Liste"})
