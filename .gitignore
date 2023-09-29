@@ -2,3 +2,5 @@
 src/MealCraft/__pycache__/
 src/db.sqlite3
 .idea/
+src/MealCraft/migrations/__pycache__/
+src/MealCraft/migrations/__pycache__/
