@@ -17,15 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from MealCraft.views import index,dev,loginpage,register_request, liste_request, pagelogout
+from MealCraft.views import HomeView, ListeView, LoginView, LogoutView, RegisterView
 
 urlpatterns = [
-    path('', index, name="Accueil"),
-    path('dev/', dev, name="Dev"),
-    path('login/', loginpage, name="Login"),
-    path("register/", register_request, name="register"),
-    path("liste/", liste_request, name="liste"),
-    path("logout/", pagelogout, name="logout"),
+    path('', HomeView.as_view(), name="Accueil"),
+    path('dev/', HomeView.as_view(), name="Dev"),
+    path('login/', LoginView.as_view(), name="Login"),
+    path("register/", RegisterView.as_view(), name="register"),
+    path("liste/", ListeView.as_view(), name="liste"),
+    path('logout/', LogoutView.as_view(), name="Logout"),
 
 
 
@@ -33,5 +33,5 @@ urlpatterns = [
 ]
 
 
-handler404 = "MealCraft.views.page_not_found_view"
+#handler404 = "MealCraft.views.ErrorView"
 
