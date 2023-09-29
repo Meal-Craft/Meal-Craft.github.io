@@ -458,22 +458,5 @@
         overflow: hidden;
         /* Permet aux images de remplir l'espace vertical disponible */
     }
-    /* Style pour le bouton "Ajouter" en bas de la div resultContainer */
-    .ajouter-button {
-        background-color: #895659;
-        color: #FFFFFF;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        margin: 10px auto; /* Centre le bouton horizontalement avec un espace de 10px au-dessus et en dessous */
-        display: block; /* Le bouton est affiché en tant que bloc pour le centrer */
-        width: 150px; /* Largeur du bouton (ajustez selon vos préférences) */
-    }
-    
-    .ajouter-button:hover {
-        background-color: #6C4253;
-    }
-    
+
 }
