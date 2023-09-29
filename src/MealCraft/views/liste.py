@@ -9,7 +9,7 @@ class ListeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["Page"] = "Liste"
-        context["liste"] = Liste.objects.filter(user=request.user)
+        context["liste"] = Liste.objects.filter(user=self.request.user)
 
         if not self.request.user.is_authenticated:
             return redirect(f"/login/")
