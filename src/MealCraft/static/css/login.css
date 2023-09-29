@@ -1,8 +1,26 @@
 #login-button {
     display: flex;
+    width: 100%;
+    margin-top: 8%;
     justify-content: center;
-    margin-top: 10%;
 }
+
+#login-button button {
+    background-color: #F1E8D7;
+    color: grey;
+
+}
+
+#signin {
+    border: 1px solid #895659;
+    padding: 5%;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #895659;
+}
+
 
 #user-placeholder {
     margin-bottom: 5%;
