@@ -35,6 +35,7 @@ header {
 
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     position: sticky;
@@ -58,6 +59,7 @@ nav ul {
 
 form {
     margin: 10px;
+    width: 100%;
 }
 
 input[type="text"],
@@ -78,19 +80,13 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 5px;
 }
 
 button[type="submit"]:hover {
     background-color: #6C4253;
 }
 
-
-/* Footer */
-
-.footercontent {
-    width: 100%;
-    display: none;
-}
 
 svg {
     margin: 0;
