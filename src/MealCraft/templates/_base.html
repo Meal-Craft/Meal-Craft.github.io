@@ -34,9 +34,11 @@
         <script src="{% static 'js/liste.js' %}"></script>
         <form onsubmit="return false;">
             <!-- Formulaire de recherche -->
+            <div id="search">
             <input type="text" id="searchInput" placeholder="Rechercher">
             <button class="bouton" onclick="search()" type="submit">Rechercher</button>
         </form> 
+            </div>
     </nav>
     {% block content %} {% endblock content %}
 
