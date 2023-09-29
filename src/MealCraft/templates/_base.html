@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    <link rel="stylesheet" href="{% static 'css/liste.css' %}">
+    <link rel="stylesheet" href="{% static 'css/liste.css' %}"> {% block head %} {% endblock head %}
 
 
 
@@ -26,18 +26,27 @@
         <img id="slogan" src="../static/img/slogan.png" />
     </header>
     <nav>
-        <ul>
-            <li><a href="/#">Accueil</a></li>
-            <li><a href="">Mon Frigo</a></li>
-            <li><a href="/liste">Liste de Course</a></li>
+        <ul id="navbar">
+            <li><button class="bouton" href="/#">Accueil</button></li>
+            {% if request.user.is_authenticated %}
+            <li><button class="bouton" href="">Frigo</button></li>
+            <li><button class="bouton" href="/liste">Liste</button></li>
+            {% else %}
+            <ul>
+                <li><a href="/login">SignIn</a></li>
+                <li><a href="/register">SignUp</a></li>
+            </ul>
+            {% endif %}
         </ul>
+
+
         <script src="{% static 'js/liste.js' %}"></script>
         {% if request.user.is_authenticated %}
         <script src="{% static 'js/liste.js' %}"></script>
-        <form onsubmit="return false;">
+        <form onsubmit="return false;" onsubmit="return false;">
             <!-- Formulaire de recherche -->
             <input type="text" id="searchInput" placeholder="Rechercher un aliment ou une recette">
-            <button onclick="search()" type="submit">Rechercher</button>
+            <button class="bouton" onclick="search()" type="submit">Rechercher</button>
         </form>
         {% else %}
         <ul>
@@ -45,10 +54,7 @@
             <li><a href="/register">Register</a></li>
         </ul>
         {% endif %}
-
     </nav>
-
-    <h1>Bienvenue sur Meal Craft !</h1>
     {% block content %} {% endblock content %}
 
 
@@ -94,6 +100,7 @@
     </div>
 
 
+    {% block script %} {% endblock script %}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

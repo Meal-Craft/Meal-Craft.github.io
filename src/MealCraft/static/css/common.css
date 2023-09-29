@@ -14,10 +14,11 @@ body {
 
 img.logo {
     width: 5%;
+    display: none;
 }
 
 img.nom {
-    width: 25%;
+    width: 90%;
 }
 
 #slogan {
@@ -53,6 +54,7 @@ nav ul {
 
 nav ul li {
     margin-right: 10px;
+    justify-content: space-between;
 }
 
 nav ul li a {
@@ -68,6 +70,9 @@ nav ul li a:hover {
     color: #ffffff
 }
 
+#navbar {
+    justify-content: space-between;
+}
 
 /* Styles pour le formulaire de recherche */
 
@@ -77,7 +82,7 @@ form {
 
 input[type="text"],
 input[type="password"] {
-    width: 300px;
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -207,14 +212,13 @@ ul {
     backdrop-filter: blur(10px);
     transition: background-color 0.3s ease;
     display: flex;
-    flex-direction: column;
     align-items: center;
     width: 200px;
+    justify-content: space-between;
 }
 
 img {
-    max-width: 100%;
-    max-height: 200px;
+    max-height: 180px;
 }
 
 .affichageResultat {
@@ -222,4 +226,49 @@ img {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
+}
+
+ul.affichageResultat {
+    justify-content: center;
+
+}
+
+.text {
+    display: flex;
+    margin-left: auto;
+    width: 100%;
+    justify-content: center;
+    min-height: 30px;
+    font-weight: bold;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.bouton {
+    background-color: #895659;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5%;
+}
+
+ul.affichageResultat .card {
+    width: calc(35% - 2%);
+    /* Répartit les cartes en 3 colonnes avec un espace de 10px entre elles */
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+}
+
+ul.affichageResultat .card img {
+    max-width: 100%;
+    object-fit: fill;
+    overflow: hidden;
+    /* Permet aux images de remplir l'espace vertical disponible */
 }
