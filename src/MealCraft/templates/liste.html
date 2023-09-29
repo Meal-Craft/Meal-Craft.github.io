@@ -15,14 +15,15 @@
         <h1 class="list-title">Liste de courses</h1>
         <div id="list-content">
             {% for i in liste %}
-                <p class="list-item"> <script>getUniqueFoods({{ i }})</script> </p>
+                <p class="list-item" id="{{ i }}"></p>
             {% endfor %}
         </div>
     </div>
 </div>
     
 {% block script %}
-    <script src="{% static 'js/liste.js' %}"></script>
+    <script src="{% static 'js/listget.js' %}"></script>
+    <script>getFoodsByCode()</script> 
 {% endblock script %}
 
 {% endblock content %}
