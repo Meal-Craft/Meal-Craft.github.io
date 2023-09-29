@@ -102,3 +102,7 @@ def liste_request(request):
         return redirect(f"/login/")
 
     return render(request, "liste.html", context={"page": "Liste", "liste": Liste.objects.filter(user=request.user)})
+
+def pagelogout(request):
+    logout(request)
+    return redirect("/")

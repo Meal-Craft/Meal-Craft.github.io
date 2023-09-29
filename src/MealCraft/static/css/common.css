@@ -6,6 +6,9 @@
         margin: 0;
         padding: 0;
         overflow: none;
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
     }
     img.logo {
         width: 5%;
