@@ -4,3 +4,5 @@ src/db.sqlite3
 .idea/
 src/MealCraft/migrations/__pycache__/
 src/MealCraft/migrations/__pycache__/
+src/MealCraft/models/__pycache__/
+src/MealCraft/views/__pycache__/
