@@ -10,6 +10,7 @@ body {
 }
 
 
+
 /* Styles pour le header */
 
 img.logo {
@@ -52,24 +53,6 @@ nav ul {
     font-size: large;
 }
 
-nav ul li {
-    margin-right: 10px;
-    justify-content: space-between;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333333;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: #895659;
-    color: #ffffff
-}
-
 #navbar {
     justify-content: space-between;
 }
@@ -89,7 +72,8 @@ input[type="password"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button[type="submit"] {
+button[type="submit"],
+button {
     background-color: #895659;
     color: #FFFFFF;
     padding: 10px 20px;
@@ -108,6 +92,7 @@ button[type="submit"]:hover {
 
 .footercontent {
     width: 100%;
+    display: none;
 }
 
 svg {
