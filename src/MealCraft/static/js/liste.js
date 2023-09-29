@@ -62,8 +62,6 @@ function search() {
             listItem.appendChild(foodName);
             */
 
-
-
             resultList.appendChild(listItem);
         });
         resultContainer.appendChild(resultList);
