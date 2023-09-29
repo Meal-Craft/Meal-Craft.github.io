@@ -24,7 +24,3 @@ function getFoodsByCode(liste) {
         }
     });
 }
-
-window.onload = function () {
-
-}
