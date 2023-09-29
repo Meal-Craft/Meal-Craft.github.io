@@ -29,15 +29,12 @@
     </header>
     <nav>
         <ul id="navbar">
-            <li><button class="bouton" href="/#">Accueil</button></li>
             {% if request.user.is_authenticated %} 
                 <li><button class="bouton" href="">Frigo</button></li>
                 <li><button class="bouton" href="/liste">Liste</button></li>
             {% else %}
                 <ul>
-                    <li> <button class="bouton" href="/login">Connexion</button></li>
-                    <li><button class="bouton" href="/register">Inscription</button></li>
-                </ul>
+                                </ul>
             {% endif %}
         </ul>
         
@@ -45,9 +42,11 @@
         <script src="{% static 'js/liste.js' %}"></script>
         <form onsubmit="return false;">
             <!-- Formulaire de recherche -->
+            <div id="search">
             <input type="text" id="searchInput" placeholder="Rechercher">
             <button class="bouton" onclick="search()" type="submit">Rechercher</button>
         </form> 
+            </div>
     </nav>
     {% block content %} {% endblock content %}
 
