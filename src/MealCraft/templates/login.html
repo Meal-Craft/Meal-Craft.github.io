@@ -1,15 +1,24 @@
 {% extends "_base.html" %}
 
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock head %}
+
 {% block content %}
     <div class="loginform">
         <p>{{result}}</p>
 
         <form id="signin" method="post"  role="form">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Utilisateur">
+            <input id="user-placeholder" type="text" name="username" placeholder="Utilisateur">
             <input type="password" name="password" placeholder="Mot de passe">
-            <button type="submit">login</button> 
-        </form>
+            
+            <div id="login-button"> 
+                <button type="submit">login</button> 
+            </div>
+            </form>
     </div>
 
 {% endblock content %}
