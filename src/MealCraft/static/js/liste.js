@@ -51,16 +51,15 @@ function search() {
             foodImage.src = food.image;
             listItem.appendChild(foodImage);
 
-            /*
-            var foodName = document.createElement("span");
-            foodName.classList.add('text');
-            // couper le dernier mot du text si il est supérieur à 17 caractère
-            if (food.name.length > 15) {
-                food.name = food.name.substring(0, 15) + '...';
-            }
-            foodName.textContent = food.name;
-            listItem.appendChild(foodName);
-            */
+            var addButton = document.createElement("button");
+            addButton.className = 'ajouter-button';
+            addButton.textContent = 'Ajouter';
+            addButton.addEventListener('click', function () {
+                // Ajoutez ici le code pour gérer l'ajout de l'aliment
+                // Vous pouvez utiliser food.name, food.image ou d'autres données de food
+                alert('Vous avez ajouté : ' + food.name);
+            });
+            listItem.appendChild(addButton);
 
             resultList.appendChild(listItem);
         });
