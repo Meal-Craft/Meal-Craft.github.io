@@ -51,17 +51,29 @@ function search() {
             foodImage.src = food.image;
             listItem.appendChild(foodImage);
 
-            /*
-            var foodName = document.createElement("span");
-            foodName.classList.add('text');
-            // couper le dernier mot du text si il est supérieur à 17 caractère
-            if (food.name.length > 15) {
-                food.name = food.name.substring(0, 15) + '...';
-            }
-            foodName.textContent = food.name;
-            listItem.appendChild(foodName);
-            */
+            var addButton = document.createElement("button");
+            addButton.className = 'ajouter-button';
+            
+            // Créez un élément <i> pour l'icône de l'étoile de Font Awesome
+            var starIcon = document.createElement("i");
+            starIcon.className = 'fa-regular fa-star'; // Assurez-vous que la classe est correcte
 
+            addButton.appendChild(starIcon); // Ajoutez l'icône de l'étoile à addButton
+
+            addButton.addEventListener('click', function () {
+                // Code pour basculer entre les classes CSS
+                if (starIcon.className === 'fa-regular fa-star') {
+                    starIcon.className = 'fa-solid fa-star';
+                } else {
+                    starIcon.className = 'fa-regular fa-star';
+                }
+
+                // Ajoutez ici le code pour gérer l'ajout de l'aliment
+                // Vous pouvez utiliser food.name, food.image ou d'autres données de food
+                alert('Vous avez ajouté : ' + food.name);
+            });
+
+            listItem.appendChild(addButton);
             resultList.appendChild(listItem);
         });
         resultContainer.appendChild(resultList);
@@ -69,3 +81,4 @@ function search() {
         resultContainer.textContent = "Aucun résultat trouvé.";
     }
 }
+

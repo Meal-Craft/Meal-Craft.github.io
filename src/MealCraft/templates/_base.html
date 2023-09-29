@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    <link rel="stylesheet" href="{% static 'css/liste.css' %}"> {% block head %} {% endblock head %}
+    <link rel="stylesheet" href="{% static 'css/liste.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    <script src="https://kit.fontawesome.com/843be6abe4.js" crossorigin="anonymous"></script>
+    {% block head %} {% endblock head %}
 
 
 
@@ -26,39 +30,47 @@
         <img id="slogan" src="../static/img/slogan.png" />
     </header>
     <nav>
-        <ul id="navbar">
-            <li><button class="bouton" href="/#">Accueil</button></li>
-            {% if request.user.is_authenticated %}
-            <li><button class="bouton" href="">Frigo</button></li>
-            <li><button class="bouton" href="/liste">Liste</button></li>
-            {% else %}
-            <ul>
-                <li> <button class="bouton" href="/login">se connecter </button></li>
-                <li><button class="bouton" href="/register">s'inscrire </button></li>
-            </ul>
-            {% endif %}
-        </ul>
-
 
         <script src="{% static 'js/liste.js' %}"></script>
         {% if request.user.is_authenticated %}
         <script src="{% static 'js/liste.js' %}"></script>
         <form onsubmit="return false;" onsubmit="return false;">
             <!-- Formulaire de recherche -->
-            <input type="text" id="searchInput" placeholder="Rechercher">
-            <button class="bouton" onclick="search()" type="submit">Rechercher</button>
+            <div id="search">
+                <input type="text" id="searchInput" placeholder="Rechercher">
+                <button class="bouton" onclick="search()" type="submit">Rechercher</button>
         </form>
-        {% else %}
-        <ul>
-            <li><a href="/login">Connexion</a></li>
-            <li><a href="/register">Register</a></li>
-        </ul>
-        {% endif %}
+        </div>
     </nav>
     {% block content %} {% endblock content %}
 
 
     <div id="resultContainer"></div>
+
+    <footer>
+        <nav>
+            <div class="button-item">
+                <a href="/#"> <i class="fa-solid fa-house"></i> </a>
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="button-item">
+                <a href="/liste"> <i class="fa-solid fa-list"></i> </a>
+            </div>
+            <div class="button-item">
+                <form method="post" role="form">
+                    <a href="/logout"> <i class="fa-solid fa-right-to-bracket"></i> </a>
+                </form>
+            </div>
+            {% else %}
+            <div class="button-item">
+                <a href="/login"> <i class="fa-solid fa-right-to-bracket"></i> </a>
+            </div>
+            <div class="button-item">
+                <a href="/register"> <i class="fa-solid fa-user-plus"></i> </a>
+            </div>
+            {% endif %}
+        </nav>
+    </footer>
 
     {% block script %} {% endblock script %}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
