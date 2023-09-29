@@ -12,7 +12,9 @@
 
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
     <link rel="stylesheet" href="{% static 'css/liste.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
+    <script src="https://kit.fontawesome.com/843be6abe4.js" crossorigin="anonymous"></script>
     {% block head %} {% endblock head %}
 
 
@@ -28,16 +30,6 @@
         <img id="slogan" src="../static/img/slogan.png" />
     </header>
     <nav>
-        <ul id="navbar">
-            {% if request.user.is_authenticated %} 
-                <li><button class="bouton" href="">Frigo</button></li>
-                <li><button class="bouton" href="/liste">Liste</button></li>
-            {% else %}
-                <ul>
-                                </ul>
-            {% endif %}
-        </ul>
-        
 
         <script src="{% static 'js/liste.js' %}"></script>
         <form onsubmit="return false;">
@@ -52,6 +44,31 @@
 
 
     <div id="resultContainer"></div>
+
+    <footer>
+        <nav>
+            <div class="button-item">
+                <a href="/#"> <i class="fa-solid fa-house"></i> </a>
+            </div>
+            {% if request.user.is_authenticated %} 
+                <div class="button-item">
+                    <a href="/liste"> <i class="fa-solid fa-list"></i> </a>
+                </div>
+                <div class="button-item">
+                    <form method="post"  role="form">
+                        <a href="/logout"> <i class="fa-solid fa-right-to-bracket"></i> </a>
+                    </form>
+                </div>
+            {% else %}
+                <div class="button-item">
+                    <a href="/login"> <i class="fa-solid fa-right-to-bracket"></i> </a>
+                </div>
+                <div class="button-item">
+                    <a href="/register"> <i class="fa-solid fa-user-plus"></i> </a>
+                </div>
+            {% endif %}
+        </nav>
+    </footer>
 
     {% block script %}
 
