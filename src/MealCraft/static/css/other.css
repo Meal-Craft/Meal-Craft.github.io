@@ -8,25 +8,24 @@ a {
     text-decoration: none;
 }
 
-#banniere-photos{
+#banniere-photos {
     display: flex;
     flex-direction: row;
-    
     background-repeat: repeat;
     padding: 0;
     margin: 0;
 }
 
-img.ban{
+img.ban {
     max-width: 100%;
     max-height: 200px;
 }
 
 
 /* Autres styles */
+
 section {
     padding: 20px;
-
     background-color: #FFFFFF;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

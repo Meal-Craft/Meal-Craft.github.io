@@ -32,12 +32,19 @@
             <li><a href="/liste">Liste de Course</a></li>
         </ul>
         <script src="{% static 'js/liste.js' %}"></script>
-
-        <form>
+        {% if request.user.is_authenticated %}
+        <script src="{% static 'js/liste.js' %}"></script>
+        <form onsubmit="return false;">
             <!-- Formulaire de recherche -->
             <input type="text" id="searchInput" placeholder="Rechercher un aliment ou une recette">
             <button onclick="search()" type="submit">Rechercher</button>
         </form>
+        {% else %}
+        <ul>
+            <li><a href="/login">Connexion</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+        {% endif %}
 
     </nav>
 

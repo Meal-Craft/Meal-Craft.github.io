@@ -19,8 +19,8 @@ function getUniqueFoods(searchQuery) {
                 var product = products[i];
                 if ("product_name" in product && "image_url" in product) {
                     var food = {
-                        name: product["product_name"],
                         image: product["image_url"],
+                        name: product["product_name"],
                     };
                     uniqueFoods.push(food);
                 }
