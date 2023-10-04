@@ -23,11 +23,10 @@ footer .button-item {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     border: 0 0 0 0;
-    background: rgb(240, 240, 240);
-    box-shadow: inset 0px 1px 0 1px rgba(0, 0, 0, 0.2);
+    background: #895659;
+    box-shadow: inset 0px 1px 0 0px rgba(0, 0, 0, 0.2);
     height: 100%;
     width: 100%;
-    border-left: black 1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +39,7 @@ footer i{
 }
 footer .button-item:active {
     box-shadow: inset 0px 1px 0 1px rgba(0, 0, 0, 0.2), inset 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
-    background: rgb(230, 230, 230);
+    background: #3d2526;
 }
 
 footer i:active {

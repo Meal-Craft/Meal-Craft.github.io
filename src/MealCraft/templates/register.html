@@ -1,21 +1,31 @@
 {% extends "_base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock head %}
 
 
-
-{% block content %} 
-
-{% load crispy_forms_tags %}         
+{% block content %}        
 
 <!--Register--> 
-<div class="container py-5">
-	<h1>Register</h1>
-	<p>{{result}}</p>
+<div id="registerform" class="container py-5">
+	<h1>Inscription</h1>
+
 	<form method="POST">
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+
 		{% csrf_token %}
-		    {{ register_form|crispy }}                    
-		    <button class="btn btn-primary" type="submit">Register</button>
+		{{ register_form }}      
+		<button class="btn btn-primary" type="submit">Register</button>
 	</form>
-	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+	<p class="text-center">Si vous avez déjà un compter, <a href="/login">login</a>.</p>
 </div>
 
 {% endblock %}

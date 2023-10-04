@@ -8,6 +8,7 @@
         overflow: none;
         display: grid;
         grid-template-rows: auto 1fr auto;
+        padding-bottom: 5vh !important;
     }
 
     img.logo {
