@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 
 from MealCraft.models import Liste
 
+import json
+
 class ListeView(TemplateView):
     template_name = "liste.html"
 

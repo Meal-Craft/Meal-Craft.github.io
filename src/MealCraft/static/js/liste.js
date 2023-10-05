@@ -19,6 +19,7 @@ function getUniqueFoods(searchQuery) {
                 var product = products[i];
                 if ("product_name" in product && "image_url" in product) {
                     var food = {
+                        id: product["code"],
                         name: product["product_name"],
                         image: product["image_url"],
                     };
@@ -34,11 +35,11 @@ function getUniqueFoods(searchQuery) {
 }
 
 function search() {
+    location.replace("/#")
     var searchQuery = document.getElementById("searchInput").value;
     var uniqueFoods = getUniqueFoods(searchQuery);
 
     var resultContainer = document.getElementById("resultContainer");
-    resultContainer.innerHTML = "";
 
     if (uniqueFoods.length > 0) {
         var resultList = document.createElement("ul");
@@ -46,6 +47,12 @@ function search() {
         uniqueFoods.forEach(function (food) {
             var listItem = document.createElement("li");
             listItem.className = 'card';
+
+            console.log(food)
+            listItem.addEventListener('click', function () {
+                location.replace("/food/" + food.id)
+
+            });
 
             var foodImage = document.createElement("img");
             foodImage.src = food.image;
@@ -58,22 +65,22 @@ function search() {
             var starIcon = document.createElement("i");
             starIcon.className = 'fa-regular fa-star'; // Assurez-vous que la classe est correcte
 
-            addButton.appendChild(starIcon); // Ajoutez l'icône de l'étoile à addButton
+            if (logged) {
+                addButton.appendChild(starIcon); // Ajoutez l'icône de l'étoile à addButton
 
-            addButton.addEventListener('click', function () {
-                // Code pour basculer entre les classes CSS
-                if (starIcon.className === 'fa-regular fa-star') {
-                    starIcon.className = 'fa-solid fa-star';
-                } else {
-                    starIcon.className = 'fa-regular fa-star';
-                }
+                addButton.addEventListener('click', function () {
+                    // Code pour basculer entre les classes CSS
+                    if (starIcon.className === 'fa-regular fa-star') {
+                        starIcon.className = 'fa-solid fa-star';
+                    } else {
+                        starIcon.className = 'fa-regular fa-star';
+                    }
 
-                // Ajoutez ici le code pour gérer l'ajout de l'aliment
-                // Vous pouvez utiliser food.name, food.image ou d'autres données de food
-                alert('Vous avez ajouté : ' + food.name);
-            });
+                });
 
-            listItem.appendChild(addButton);
+            
+                listItem.appendChild(addButton);
+            }
             resultList.appendChild(listItem);
         });
         resultContainer.appendChild(resultList);

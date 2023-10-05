@@ -1,5 +1,7 @@
 {% extends '_base.html' %}
 
+
+
 {% load static %}
 
 {% block head %}
@@ -7,17 +9,12 @@
 {% endblock head %}
     
 {% block content %}
-
-<p>Ceci est la page d'accueil</p>  
-
-    {% if request.user.is_authenticated %}     
-        <a href="/dev">DevelopersPage</a> <br> 
-    {% endif %}  
-
-
-
-    
-
-
-
+    <script>
+        {% if request.user.is_authenticated %}
+            const logged = true;
+        {% else %}
+            const logged = false;
+        {% endif %}
+        
+    </script>
 {% endblock content %}

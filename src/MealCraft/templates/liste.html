@@ -15,7 +15,7 @@
         <h1 class="list-title">Liste de courses</h1>
         <div id="list-content">
             {% for i in liste %}
-                <p class="list-item" id="{{ i }}"></p>
+                <p class="list-item" id="{{ i["product_name"] }}"></p>
             {% endfor %}
         </div>
     </div>

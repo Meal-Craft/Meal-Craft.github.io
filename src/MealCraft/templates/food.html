@@ -1,0 +1,32 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block head %}
+    <script src="{% static 'js/listget.js' %}"></script>
+
+{% endblock head %}
+
+
+
+{% block content %}
+
+
+<div class="mainBlock">
+    <img src="" alt="" id="productImg">
+    <div class="informations">    
+        <h2>Nom : <span id="productName"></span></h2>
+        <p>Code-barres (EAN-13) : <span id="productCB"></span></p>
+        <p>Dénomination générique : <span id="productDG"></span></p>
+        <p>Quantité : <span id="productQuantity"></span></p>
+        <p>Marques  : <span id="productFirm"></span></p>
+        <p>Catégories : <span id="productCategory"></span></p>
+    </div>
+</div> 
+{% endblock content %}
+
+{% block script %}
+    <script>getInformation({{ code }});</script>
+
+{% endblock script %}
+
+
