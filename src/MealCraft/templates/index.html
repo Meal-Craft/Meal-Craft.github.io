@@ -15,6 +15,9 @@
         {% else %}
             const logged = false;
         {% endif %}
-        
+
+        const liste = {{ liste|safe }};
+
+
     </script>
 {% endblock content %}

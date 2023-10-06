@@ -48,15 +48,15 @@ function search() {
             var listItem = document.createElement("li");
             listItem.className = 'card';
 
-            console.log(food)
-            listItem.addEventListener('click', function () {
-                location.replace("/food/" + food.id)
 
-            });
 
             var foodImage = document.createElement("img");
             foodImage.src = food.image;
             listItem.appendChild(foodImage);
+            foodImage.addEventListener('click', function () {
+                location.replace("/food/" + food.id)
+
+            });
 
             var addButton = document.createElement("button");
             addButton.className = 'ajouter-button';
@@ -64,6 +64,13 @@ function search() {
             // Créez un élément <i> pour l'icône de l'étoile de Font Awesome
             var starIcon = document.createElement("i");
             starIcon.className = 'fa-regular fa-star'; // Assurez-vous que la classe est correcte
+            for (let i = 0; i < liste.length; i++) {
+                if (liste[i]["fields"]["nutrimcode"] === food.id) {
+                    starIcon.className = 'fa-solid fa-star';
+                    break;
+                }
+            }
+
 
             if (logged) {
                 addButton.appendChild(starIcon); // Ajoutez l'icône de l'étoile à addButton
