@@ -15,7 +15,9 @@ def foodGet(request, pk):
         if request.method == "POST":
             if not (Liste.objects.filter(user=request.user, nutrimcode=pk).exists()):
                 Liste.objects.create(user=request.user, nutrimcode=pk)
-
-                return redirect(f"/food/" + pk)
+            else:  
+                Liste.objects.filter(user=request.user, nutrimcode=pk).delete()
+            
+            return redirect(f"/food/" + pk)
 
     return render(request, "food.html", {"code": str(pk), "inlist": inlist})

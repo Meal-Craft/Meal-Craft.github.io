@@ -24,9 +24,12 @@ function getInformation(searchQuery) {
 
     document.getElementById("productName").innerHTML = food["product_name"];
     document.getElementById("productCB").innerHTML = food["code"];
-    //document.getElementById("productDG").innerHTML = food[];
+    document.getElementById("productDG").innerHTML = food["generic_name_fr"];
+    document.getElementById("productFirm").innerHTML = food["brands"];
+    document.getElementById("productCategory").innerHTML = food["categories"];
 
     document.getElementById("productImg").src = food["image_url"];
+    document.getElementById("productQuantity").innerHTML = food['packagings'][1]["quantity_per_unit"];
 
 }
 
