@@ -13,7 +13,6 @@ def foodGet(request, pk):
         inlist = Liste.objects.filter(user=request.user, nutrimcode=pk).exists()
 
         if request.method == "POST":
-            print(str(pk))
             if not (Liste.objects.filter(user=request.user, nutrimcode=pk).exists()):
                 Liste.objects.create(user=request.user, nutrimcode=pk)
 

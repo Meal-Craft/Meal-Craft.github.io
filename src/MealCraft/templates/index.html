@@ -17,7 +17,12 @@
         {% endif %}
 
         const liste = {{ liste|safe }};
-
-
     </script>
+
+    <div id="resultContainer">
+        <form id="foodForm" method="POST">
+            {% csrf_token %}
+        </form>
+    </div>
+
 {% endblock content %}

@@ -27,12 +27,12 @@ class HomeView(TemplateView):
 
         return context
     
-    def post(self, request, **kwargs):     
-        if request.user.is_authenticated:
-            print("test")
-            redirect(f"/liste")
+    # def post(self, request, **kwargs):     
+    #     if request.user.is_authenticated:
+    #         print("test")
+    #         redirect(f"/liste")
 
-            id = request.POST.get('id')
-            print(id)
+    #         id = request.POST.get('id')
+    #         print(id)
 
-        return render(request, self.template_name, {})
+    #     return render(request, self.template_name, {})
