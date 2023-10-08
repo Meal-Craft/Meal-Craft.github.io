@@ -1,6 +1,5 @@
-
 footer {
-	position: fixed;
+    position: fixed;
     width: 100%;
     bottom: 0;
     height: 8vh;
@@ -15,8 +14,10 @@ footer nav {
 
 }
 
-footer ,footer a {
-    color: #1f3151;
+footer,
+footer a {
+    color: #F1E8D7;
+    text-shadow: 0 0 2px #000;
 }
 
 footer .button-item {
@@ -32,11 +33,12 @@ footer .button-item {
     align-items: center;
 }
 
-footer i{
+footer i {
     overflow: hidden;
     font-size: 5vh;
 
 }
+
 footer .button-item:active {
     box-shadow: inset 0px 1px 0 1px rgba(0, 0, 0, 0.2), inset 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
     background: #3d2526;
@@ -50,9 +52,11 @@ footer i:active {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.2);
     }
+
     100% {
         transform: scale(1);
     }

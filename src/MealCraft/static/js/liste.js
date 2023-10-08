@@ -40,8 +40,10 @@ function search() {
     var uniqueFoods = getUniqueFoods(searchQuery);
 
     var resultContainer = document.getElementById("resultContainer");
-
-    if (uniqueFoods.length > 0) {
+        
+    while (resultContainer.firstChild) { resultContainer.removeChild(resultContainer.firstChild); }
+    
+    if (uniqueFoods.length > 0) {         
         var resultList = document.createElement("ul");
         resultList.className = 'affichageResultat';
         uniqueFoods.forEach(function (food) {
@@ -63,7 +65,9 @@ function search() {
             
             // Créez un élément <i> pour l'icône de l'étoile de Font Awesome
             var starIcon = document.createElement("i");
+
             starIcon.className = 'fa-solid fa-arrow-up'; // Assurez-vous que la classe est correcte
+
             for (let i = 0; i < liste.length; i++) {
                 if (liste[i]["fields"]["nutrimcode"] === food.id) {
                     starIcon.className = 'fa-solid fa-arrow-up';
