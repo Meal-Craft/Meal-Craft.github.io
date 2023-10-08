@@ -29,10 +29,10 @@
 <body {% if Page == "Accueil" %} onload='search()' {% endif %}>
     <header>
         <div class="name">
-            <img class="logo" src="../static/img/logo.png" />
-            <img class="nom" src="../static/img/nom.png" />
+            <img class="logo" src="{% static 'img/logo.png' %}" />
+            <img class="nom" src="{% static 'img/nom.png' %}" />
         </div>
-        <img id="slogan" src="../static/img/slogan.png" />
+        <img id="slogan" src="{% static 'img/slogan.png' %}" />
     </header>
     <nav>
 
