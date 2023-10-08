@@ -35,7 +35,6 @@ function getUniqueFoods(searchQuery) {
 }
 
 function search() {
-    location.reload();
     location.replace("/#")
     var searchQuery = document.getElementById("searchInput").value;
     var uniqueFoods = getUniqueFoods(searchQuery);
@@ -64,7 +63,7 @@ function search() {
             
             // Créez un élément <i> pour l'icône de l'étoile de Font Awesome
             var starIcon = document.createElement("i");
-            starIcon.className = 'fa-regular fa-star'; // Assurez-vous que la classe est correcte
+            starIcon.className = 'fa-regular fa-star';
             for (let i = 0; i < liste.length; i++) {
                 if (liste[i]["fields"]["nutrimcode"] === food.id) {
                     starIcon.className = 'fa-solid fa-star';
@@ -74,10 +73,8 @@ function search() {
 
 
             if (logged) {
-                addButton.appendChild(starIcon); // Ajoutez l'icône de l'étoile à addButton
-
+                addButton.appendChild(starIcon);
                 addButton.addEventListener('click', function () {
-                    // Code pour basculer entre les classes CSS
                     if (starIcon.className === 'fa-regular fa-star') {
                         starIcon.className = 'fa-solid fa-star';
                     } else {
