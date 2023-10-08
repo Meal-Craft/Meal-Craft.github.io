@@ -40,8 +40,10 @@ function search() {
     var uniqueFoods = getUniqueFoods(searchQuery);
 
     var resultContainer = document.getElementById("resultContainer");
-
-    if (uniqueFoods.length > 0) {
+        
+    while (resultContainer.firstChild) { resultContainer.removeChild(resultContainer.firstChild); }
+    
+    if (uniqueFoods.length > 0) {         
         var resultList = document.createElement("ul");
         resultList.className = 'affichageResultat';
         uniqueFoods.forEach(function (food) {
