@@ -21,7 +21,6 @@ from MealCraft.views import HomeView, ListeView, LoginView, LogoutView, Register
 
 urlpatterns = [
     path('', HomeView.as_view(), name="Accueil"),
-    path('dev/', HomeView.as_view(), name="Dev"),
     path('login/', LoginView.as_view(), name="Login"),
     path("register/", RegisterView.as_view(), name="register"),
     path("liste/", ListeView.as_view(), name="liste"),
@@ -30,7 +29,7 @@ urlpatterns = [
     path("food/", noFood, name="Nouriture"),
     path("food/<str:pk>/", foodGet, name="Nouriture"),
 
-    path('admin/', admin.site.urls),
+    path('klopdfsjopigjpoerjrgopergopgperogeropopkerg/', admin.site.urls),
 ]
 
 

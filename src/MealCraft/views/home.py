@@ -11,19 +11,19 @@ import json
 
 @method_decorator(csrf_exempt, name='dispatch')
 class HomeView(TemplateView):
+    """Vue de la page d'accueil"""
     template_name = "index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["Page"] = "Accueil"
-        print("test")
 
+        ## Initialisation des variables
+        context["Page"] = "Accueil"
         context["liste"] = {}
-        print(context["liste"])
         
+        ## Si l'utilisateur est authentifié, on récupère sa liste de produit
         if self.request.user.is_authenticated:
             context["liste"] = serialize('json', Liste.objects.filter(user=self.request.user))
-            print(context["liste"])
 
         return context
     
