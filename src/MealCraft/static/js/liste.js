@@ -60,34 +60,24 @@ function search() {
 
             });
 
-            var addButton = document.createElement("button");
-            addButton.className = 'ajouter-button';
+            var addpara = document.createElement("p");
+            addpara.className = 'ajouter-para';
             
             // Créez un élément <i> pour l'icône de l'étoile de Font Awesome
             var starIcon = document.createElement("i");
-            starIcon.className = 'fa-regular fa-star';
+
+            starIcon.className = 'fa-solid fa-arrow-up'; // Assurez-vous que la classe est correcte
+
             for (let i = 0; i < liste.length; i++) {
                 if (liste[i]["fields"]["nutrimcode"] === food.id) {
-                    starIcon.className = 'fa-solid fa-star';
+                    starIcon.className = 'fa-solid fa-arrow-up';
                     break;
                 }
             }
 
+            addpara.appendChild(starIcon);
+            listItem.appendChild(addpara);
 
-            if (logged) {
-                addButton.appendChild(starIcon);
-                addButton.addEventListener('click', function () {
-                    if (starIcon.className === 'fa-regular fa-star') {
-                        starIcon.className = 'fa-solid fa-star';
-                    } else {
-                        starIcon.className = 'fa-regular fa-star';
-                    }
-
-                });
-
-            
-                listItem.appendChild(addButton);
-            }
             resultList.appendChild(listItem);
         });
         resultContainer.appendChild(resultList);
