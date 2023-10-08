@@ -35,6 +35,7 @@ function getUniqueFoods(searchQuery) {
 }
 
 function search() {
+    location.reload();
     location.replace("/#")
     var searchQuery = document.getElementById("searchInput").value;
     var uniqueFoods = getUniqueFoods(searchQuery);
